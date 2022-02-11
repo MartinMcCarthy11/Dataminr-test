@@ -3,7 +3,6 @@ import styled from 'styled-components';
 interface toggleProps {
 	toggled: boolean;
 	name: string;
-	// disabled: boolean;
 	onChange: React.ChangeEventHandler<HTMLInputElement>;
 }
 
@@ -42,7 +41,8 @@ const ToggleLabel = styled.label`
 		border-radius: 50%;
 		width: 14px;
 		height: 14px;
-		margin: 3px;
+		margin: 1px 1px;
+		/* margin-left: 5px; */
 		background: #ffffff;
 		box-shadow: 1px 3px 3px 1px rgba(0, 0, 0, 0.2);
 		transition: 0.2s;
@@ -62,7 +62,7 @@ const Toggle = styled.input`
 			border-radius: 50%;
 			width: 14px;
 			height: 14px;
-			margin-left: 24px;
+			margin-left: 27px;
 			transition: 0.2s;
 		}
 	}

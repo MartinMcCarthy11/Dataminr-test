@@ -57,7 +57,9 @@ function Card({
 					<DropdownContainer>
 						<select>
 							{dropdown.options.map((item) => (
-								<option value={item}>{item}</option>
+								<option key={item} value={item}>
+									{item}
+								</option>
 							))}
 						</select>
 					</DropdownContainer>
@@ -90,7 +92,7 @@ function Card({
 const CardsWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
-	flex: 1 1 auto;
+	flex: 0 1 420px;
 	max-width: 400px;
 	padding-left: 30px;
 	background-color: #1b1c20;
