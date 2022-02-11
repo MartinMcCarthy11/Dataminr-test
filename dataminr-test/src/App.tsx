@@ -24,11 +24,12 @@ function App({ schema }: Props) {
 								title={card.title}
 								name={card.name}
 								selected={card.selected}
-								dropdown={card.dropdown && true}
+								dropdown={card.dropdown}
 								additionalSettings={
 									card.additionalSettings &&
 									card.additionalSettings
 								}
+								subCard={card.subCard}
 							/>
 						))}
 					</CardContainerWrapper>
@@ -39,7 +40,7 @@ function App({ schema }: Props) {
 }
 
 const AppWrapper = styled.main`
-	background-color: #000;
+	background-color: #0d0d0f;
 	color: #fff;
 	height: 100vh;
 	margin: 0;

@@ -33,7 +33,6 @@ const ToggleLabel = styled.label`
 	top: 0;
 	left: 0;
 	width: 42px;
-	height: 26px;
 	border-radius: 15px;
 	background: #bebebe;
 	cursor: pointer;
@@ -41,8 +40,8 @@ const ToggleLabel = styled.label`
 		content: '';
 		display: block;
 		border-radius: 50%;
-		width: 18px;
-		height: 18px;
+		width: 14px;
+		height: 14px;
 		margin: 3px;
 		background: #ffffff;
 		box-shadow: 1px 3px 3px 1px rgba(0, 0, 0, 0.2);
@@ -55,16 +54,15 @@ const Toggle = styled.input`
 	z-index: 1;
 	border-radius: 15px;
 	width: 42px;
-	height: 26px;
 	&:checked + ${ToggleLabel} {
-		background: #4fbe79;
+		background: #609ef9;
 		&::after {
 			content: '';
 			display: block;
 			border-radius: 50%;
-			width: 18px;
-			height: 18px;
-			margin-left: 21px;
+			width: 14px;
+			height: 14px;
+			margin-left: 24px;
 			transition: 0.2s;
 		}
 	}

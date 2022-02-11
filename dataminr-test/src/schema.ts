@@ -1,10 +1,16 @@
 import { v4 as uuidv4 } from 'uuid';
 
+export interface DropdownObject {
+	initialSelection: string;
+	options: string[];
+}
+
 export interface AdditionalSettings {
 	id: string;
 	title: string;
 	name: string;
-	dropdown?: string[];
+	subCard: boolean;
+	dropdown?: DropdownObject;
 	selected: boolean;
 	additionalSettings: AdditionalSettings[];
 }
@@ -14,7 +20,8 @@ export interface Card {
 	title: string;
 	name: string;
 	selected: boolean;
-	dropdown?: boolean;
+	dropdown?: DropdownObject;
+	subCard: boolean;
 	additionalSettings: AdditionalSettings[];
 }
 
@@ -37,6 +44,7 @@ export const schema: Section[] = [
 				name: 'caseManagement',
 				selected: true,
 				additionalSettings: [],
+				subCard: false,
 			},
 			{
 				id: uuidv4(),
@@ -44,6 +52,7 @@ export const schema: Section[] = [
 				name: 'mapTimeline',
 				selected: true,
 				additionalSettings: [],
+				subCard: false,
 			},
 		],
 	},
@@ -57,6 +66,11 @@ export const schema: Section[] = [
 				title: 'Users',
 				name: 'users',
 				selected: false,
+				subCard: false,
+				dropdown: {
+					initialSelection: '20',
+					options: ['10', '20', '30', '40', '50'],
+				},
 				additionalSettings: [
 					{
 						id: uuidv4(),
@@ -64,6 +78,7 @@ export const schema: Section[] = [
 						name: 'usersAdd',
 						selected: true,
 						additionalSettings: [],
+						subCard: true,
 					},
 					{
 						id: uuidv4(),
@@ -71,6 +86,7 @@ export const schema: Section[] = [
 						name: 'usersDelete',
 						selected: true,
 						additionalSettings: [],
+						subCard: true,
 					},
 				],
 			},

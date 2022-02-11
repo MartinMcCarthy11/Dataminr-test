@@ -1,45 +1,47 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import { AdditionalSettings } from '../schema';
+import { AdditionalSettings, DropdownObject } from '../schema';
 import ArrowToggle from './ArrowToggle';
 import SubCard from './SubCard';
 import ToggleSwitch from './ToggleSwitch';
 
 interface cardProps
-	extends JSX.IntrinsicAttributes,
+	extends styleCardProps,
+		JSX.IntrinsicAttributes,
 		React.HtmlHTMLAttributes<HTMLElement> {
 	title: string;
 	name: string;
 	selected: boolean;
-	dropdown?: boolean;
 	additionalSettings: AdditionalSettings[];
+}
+
+interface styleCardProps {
+	subCard: boolean;
+	dropdown?: DropdownObject;
 }
 
 function Card({
 	title,
 	name,
 	dropdown,
+	subCard,
 	selected,
 	additionalSettings,
 }: cardProps) {
 	const [toggled, setToogled] = useState(selected);
-	// const [subOptionsAvailable, setShowSubOptionsAvailable] = useState(false);
 	const [showHiddenSection, setShowHiddenSection] = useState(false);
 	const [disabled, setDisabled] = useState(false);
 	const updateToggleState = (toggled: boolean) => {
 		setToogled(!toggled);
-		// setShowSubOptionsAvailable(!toggled);
 		setShowHiddenSection(!toggled && false);
-		// setDisabled(toggled);
+		setDisabled(toggled);
 	};
 
 	const toggleOptionsVisibility = () => {
 		if (showHiddenSection) {
 			setShowHiddenSection(false);
-			setDisabled(true);
 		} else {
 			setShowHiddenSection(true);
-			setDisabled(false);
 		}
 	};
 
@@ -49,8 +51,17 @@ function Card({
 
 	return (
 		<CardsWrapper>
-			<CardMain>
+			<CardMain subCard={subCard} dropdown={dropdown}>
 				<h3>{title}</h3>
+				{dropdown && (
+					<DropdownContainer>
+						<select>
+							{dropdown.options.map((item) => (
+								<option value={item}>{item}</option>
+							))}
+						</select>
+					</DropdownContainer>
+				)}
 
 				<ToggleContainer>
 					<ToggleSwitch
@@ -81,22 +92,40 @@ const CardsWrapper = styled.div`
 	flex-direction: column;
 	flex: 1 1 auto;
 	max-width: 400px;
-	padding: 25px;
 	padding-left: 30px;
-	background-color: grey;
+	background-color: #1b1c20;
 	border-radius: 5px;
+	font-size: 14px;
 `;
 
-const CardMain = styled.div`
+const CardMain = styled.div<styleCardProps>`
 	display: grid;
-	grid-template-columns: 3.5fr 1fr;
+	grid-auto-columns: 1fr;
+	grid-template-columns: ${({ dropdown }) =>
+		dropdown !== undefined ? '3.5fr 2fr 1.5fr' : '3.5fr 1.5fr'};
+	grid-template-rows: 0.5fr;
+	gap: 0px 0px;
+	grid-template-areas: ${({ dropdown }) =>
+		dropdown !== undefined ? '. . .' : '. . '};
 	align-items: center;
+
+	${({ subCard }) => (subCard ? 'padding:5px;' : 'padding: 25px;')}
 `;
 
 const ToggleContainer = styled.div`
 	display: flex;
 	justify-content: end;
 	gap: 0.5em;
+`;
+
+const DropdownContainer = styled.div`
+	select {
+		width: 80px;
+		background-color: #0d0d0f;
+		padding: 4px;
+		color: #fff;
+		border: 0px;
+	}
 `;
 
 export default Card;

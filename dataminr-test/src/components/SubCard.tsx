@@ -16,8 +16,9 @@ function SubCard({ additionalSettings }: SubCardProps) {
 					title={card.title}
 					name={card.name}
 					selected={card.selected}
-					dropdown={card.dropdown && true}
+					dropdown={card.dropdown}
 					additionalSettings={[]}
+					subCard={card.selected}
 				/>
 			))}
 		</SubCardWrapper>
@@ -29,7 +30,6 @@ const SubCardWrapper = styled.div`
 	flex-direction: column;
 	padding: 4px;
 	margin-left: 25px;
-	background-color: grey;
 	border-radius: 5px;
 `;
 

@@ -12,7 +12,7 @@ interface StyleProps {
 
 function ArrowToggle({ onClick, isDisabled }: ArrowToggleProps) {
 	return (
-		<IconContainer isDisabled>
+		<IconContainer isDisabled={isDisabled}>
 			{isDisabled ? (
 				<BsChevronUp onClick={onClick} />
 			) : (
@@ -25,7 +25,7 @@ function ArrowToggle({ onClick, isDisabled }: ArrowToggleProps) {
 const IconContainer = styled.div<StyleProps>`
 	svg {
 		${({ isDisabled }: StyleProps) =>
-			isDisabled ? 'cursor:pointer;' : 'cursor:default;'};
+			isDisabled ? 'cursor:default;' : 'cursor:pointer;'};
 	}
 `;
 
