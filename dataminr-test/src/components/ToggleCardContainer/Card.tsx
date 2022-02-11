@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import { AdditionalSettings, DropdownObject } from '../schema';
+import { AdditionalSettings, DropdownObject } from '../../schema';
 import ArrowToggle from './ArrowToggle';
 import SubCard from './SubCard';
-import ToggleSwitch from './ToggleSwitch';
+import ToggleSwitch from '../Common/ToggleSwitch';
 
 interface cardProps
 	extends styleCardProps,
@@ -50,7 +50,7 @@ function Card({
 	// }
 
 	return (
-		<CardsWrapper>
+		<CardsWrapper subCard={subCard}>
 			<CardMain subCard={subCard} dropdown={dropdown}>
 				<h3>{title}</h3>
 				{dropdown && (
@@ -89,14 +89,13 @@ function Card({
 	);
 }
 
-const CardsWrapper = styled.div`
+const CardsWrapper = styled.div<styleCardProps>`
 	display: flex;
 	flex-direction: column;
-	flex: 0 1 420px;
-	max-width: 400px;
+	flex: ${({ subCard }) => (subCard ? '0 1 50px;' : '0 1 420px;')};
 	padding-left: 30px;
 	background-color: #1b1c20;
-	border-radius: 5px;
+	border-radius: 10px;
 	font-size: 14px;
 `;
 
@@ -110,7 +109,7 @@ const CardMain = styled.div<styleCardProps>`
 	grid-template-areas: ${({ dropdown }) =>
 		dropdown !== undefined ? '. . .' : '. . '};
 	align-items: center;
-
+	min-width: 370px;
 	${({ subCard }) => (subCard ? 'padding:5px;' : 'padding: 25px;')}
 `;
 

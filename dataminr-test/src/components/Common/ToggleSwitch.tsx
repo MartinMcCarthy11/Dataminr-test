@@ -7,8 +7,6 @@ interface toggleProps {
 }
 
 function ToggleSwitch({ toggled, name, onChange }: toggleProps) {
-	console.log(toggled);
-
 	return (
 		<ToggleContainer>
 			<Toggle

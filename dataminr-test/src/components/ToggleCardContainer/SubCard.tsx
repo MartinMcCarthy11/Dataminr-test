@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { AdditionalSettings } from '../schema';
+import { AdditionalSettings } from '../../schema';
 import Card from './Card';
 
 interface SubCardProps {
@@ -29,7 +29,6 @@ const SubCardWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 	padding: 4px;
-	margin-left: 25px;
 	border-radius: 5px;
 `;
 
