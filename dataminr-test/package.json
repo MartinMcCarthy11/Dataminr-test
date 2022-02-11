@@ -39,5 +39,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/styled-components": "^5.1.22",
+    "babel-plugin-styled-components": "^2.0.2",
+    "react-icons": "^4.3.1",
+    "styled-components": "^5.3.3",
+    "uuidv4": "^6.2.12"
   }
 }

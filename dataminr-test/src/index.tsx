@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
+import './base.css';
 import { schema } from './schema';
-import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
 	<React.StrictMode>
@@ -26,13 +25,10 @@ ReactDOM.render(
  * create interface detailing the structure
  * the export json object extending that interface
  *
+ * Check accessibility - run axe test etc
  *
  *
  *
- *
+ *Bugs:
+  arrow changes dierection when toggle set to false
  */
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

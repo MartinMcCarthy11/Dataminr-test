@@ -1,35 +1,56 @@
-import React, { Fragment } from 'react';
-import { schema } from './schema';
-import type { Section } from './schema';
-import './App.css';
+import { Section } from './schema';
+import styled from 'styled-components';
+import Card from './components/Card';
 
-interface Props {
+type Props = {
 	schema: Section[];
-}
+};
 
 function App({ schema }: Props) {
+	const showAdditionalOptions = () => {
+		console.log(schema);
+	};
+
 	return (
-		<>
-			<div>
-				{schema.map((section) => (
-					<Fragment key={section.id}>
-						<h1>{section.title}</h1>
+		<AppWrapper>
+			{schema.map((section) => (
+				<section key={section.id}>
+					<h1>{section.title}</h1>
+					{showAdditionalOptions()}
+					<CardContainerWrapper>
 						{section.card.map((card) => (
-							<Fragment key={card.id}>
-								<h2>{card.title}</h2>
-								{card.additionalSettings &&
-									card.additionalSettings.map((setting) => (
-										<Fragment key={setting.id}>
-											<h3>{setting.title}</h3>
-										</Fragment>
-									))}
-							</Fragment>
+							<Card
+								key={card.id}
+								title={card.title}
+								name={card.name}
+								selected={card.selected}
+								dropdown={card.dropdown && true}
+								additionalSettings={
+									card.additionalSettings &&
+									card.additionalSettings
+								}
+							/>
 						))}
-					</Fragment>
-				))}
-			</div>
-		</>
+					</CardContainerWrapper>
+				</section>
+			))}
+		</AppWrapper>
 	);
 }
+
+const AppWrapper = styled.main`
+	background-color: #000;
+	color: #fff;
+	height: 100vh;
+	margin: 0;
+	padding: 50px;
+`;
+
+const CardContainerWrapper = styled.section`
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 2em;
+`;
 
 export default App;
