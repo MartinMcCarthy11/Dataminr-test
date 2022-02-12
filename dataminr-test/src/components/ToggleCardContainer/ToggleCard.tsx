@@ -35,6 +35,7 @@ function ToggleCard({
 	const [toggled, setToogled] = useState(selected);
 	const [showHiddenSection, setShowHiddenSection] = useState(false);
 	const [disabled, setDisabled] = useState(false);
+	const [arrowOrietation, setArrowOrientation] = useState('down');
 
 	const updateToggleState = (toggled: boolean) => {
 		setToogled(!toggled);
@@ -45,8 +46,10 @@ function ToggleCard({
 	const toggleOptionsVisibility = () => {
 		if (showHiddenSection) {
 			setShowHiddenSection(false);
+			setArrowOrientation('down');
 		} else {
 			setShowHiddenSection(true);
+			setArrowOrientation('up');
 		}
 	};
 
@@ -79,10 +82,11 @@ function ToggleCard({
 
 					{additionalSettings!.length > 0 && (
 						<ArrowToggle
+							arrowOrientation={arrowOrietation}
 							onClick={() => {
 								toggleOptionsVisibility();
 							}}
-							isDisabled={disabled}
+							isDisabled={toggled}
 						/>
 					)}
 				</ToggleContainer>

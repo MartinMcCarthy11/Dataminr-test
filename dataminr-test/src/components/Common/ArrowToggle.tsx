@@ -4,16 +4,21 @@ import styled from 'styled-components';
 
 interface ArrowToggleProps extends StyleProps {
 	onClick: React.MouseEventHandler<SVGElement>;
+	arrowOrientation: string;
 }
 
 interface StyleProps {
 	isDisabled: boolean;
 }
 
-function ArrowToggle({ onClick, isDisabled }: ArrowToggleProps) {
+function ArrowToggle({
+	onClick,
+	isDisabled,
+	arrowOrientation,
+}: ArrowToggleProps) {
 	return (
 		<IconContainer isDisabled={isDisabled}>
-			{isDisabled ? (
+			{arrowOrientation === 'up' && isDisabled ? (
 				<BsChevronUp onClick={onClick} />
 			) : (
 				<BsChevronDown onClick={onClick} />
@@ -25,7 +30,7 @@ function ArrowToggle({ onClick, isDisabled }: ArrowToggleProps) {
 const IconContainer = styled.div<StyleProps>`
 	svg {
 		${({ isDisabled }: StyleProps) =>
-			isDisabled ? 'cursor:default;' : 'cursor:pointer;'};
+			isDisabled ? 'cursor:pointer;' : 'cursor:default;'};
 	}
 `;
 
