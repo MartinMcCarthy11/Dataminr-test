@@ -5,6 +5,8 @@ import ArrowToggle from './ArrowToggle';
 import SubCard from './SubCard';
 import ToggleSwitch from '../Common/ToggleSwitch';
 
+export type CardSize = 'small' | 'standared';
+
 interface cardProps
 	extends styleCardProps,
 		JSX.IntrinsicAttributes,
@@ -18,6 +20,7 @@ interface cardProps
 interface styleCardProps {
 	subCard: boolean;
 	dropdown?: DropdownObject;
+	cardSize?: CardSize;
 }
 
 function Card({
@@ -26,11 +29,13 @@ function Card({
 	dropdown,
 	subCard,
 	selected,
+	cardSize,
 	additionalSettings,
 }: cardProps) {
 	const [toggled, setToogled] = useState(selected);
 	const [showHiddenSection, setShowHiddenSection] = useState(false);
 	const [disabled, setDisabled] = useState(false);
+
 	const updateToggleState = (toggled: boolean) => {
 		setToogled(!toggled);
 		setShowHiddenSection(!toggled && false);
@@ -51,7 +56,7 @@ function Card({
 
 	return (
 		<CardsWrapper subCard={subCard}>
-			<CardMain subCard={subCard} dropdown={dropdown}>
+			<CardMain subCard={subCard} dropdown={dropdown} cardSize={cardSize}>
 				<h3>{title}</h3>
 				{dropdown && (
 					<DropdownContainer>
@@ -111,6 +116,8 @@ const CardMain = styled.div<styleCardProps>`
 	align-items: center;
 	min-width: 370px;
 	${({ subCard }) => (subCard ? 'padding:5px;' : 'padding: 25px;')}
+	${({ cardSize }) =>
+		cardSize === 'small' ? 'padding:5px;' : 'padding: 25px;'}
 `;
 
 const ToggleContainer = styled.div`

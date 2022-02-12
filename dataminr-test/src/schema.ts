@@ -29,6 +29,7 @@ export interface Section {
 	id: string;
 	title: string;
 	name: string;
+	combined?: boolean;
 	card: Card[];
 }
 
@@ -128,6 +129,7 @@ export const schema: Section[] = [
 		id: uuidv4(),
 		title: 'Alerts',
 		name: 'alerts',
+		combined: true,
 		card: [
 			{
 				id: uuidv4(),

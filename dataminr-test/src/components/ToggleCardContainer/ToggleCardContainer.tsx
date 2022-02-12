@@ -12,22 +12,42 @@ function ToggleCardContainer({ schema }: Props) {
 			{schema.map((section) => (
 				<section key={section.id}>
 					<h1>{section.title}</h1>
-					<CardContainerWrapper>
-						{section.card.map((card: SchemaCard) => (
-							<Card
-								key={card.id}
-								title={card.title}
-								name={card.name}
-								selected={card.selected}
-								dropdown={card.dropdown}
-								additionalSettings={
-									card.additionalSettings &&
-									card.additionalSettings
-								}
-								subCard={card.subCard}
-							/>
-						))}
-					</CardContainerWrapper>
+					{section.combined ? (
+						<CombinedSectionWrapper>
+							{section.card.map((card: SchemaCard) => (
+								<Card
+									key={card.id}
+									title={card.title}
+									name={card.name}
+									selected={card.selected}
+									dropdown={card.dropdown}
+									additionalSettings={
+										card.additionalSettings &&
+										card.additionalSettings
+									}
+									subCard={card.subCard}
+									cardSize='small'
+								/>
+							))}
+						</CombinedSectionWrapper>
+					) : (
+						<CardContainerWrapper>
+							{section.card.map((card: SchemaCard) => (
+								<Card
+									key={card.id}
+									title={card.title}
+									name={card.name}
+									selected={card.selected}
+									dropdown={card.dropdown}
+									additionalSettings={
+										card.additionalSettings &&
+										card.additionalSettings
+									}
+									subCard={card.subCard}
+								/>
+							))}
+						</CardContainerWrapper>
+					)}
 				</section>
 			))}
 		</SectionWrapper>
@@ -46,6 +66,21 @@ const SectionWrapper = styled.section`
 	flex-direction: row;
 	flex-wrap: wrap;
 	column-gap: 2em;
+`;
+
+const CombinedSectionWrapper = styled.section`
+	div {
+		border-radius: 0;
+	}
+
+	div:first-child {
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+	}
+	div:last-child {
+		border-bottom-left-radius: 10px;
+		border-bottom-right-radius: 10px;
+	}
 `;
 
 export default ToggleCardContainer;
