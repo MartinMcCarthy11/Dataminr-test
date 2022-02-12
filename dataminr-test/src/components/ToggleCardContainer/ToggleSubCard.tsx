@@ -29,7 +29,6 @@ const SubCardWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 	padding: 4px;
-	border-radius: 5px;
 `;
 
 export default ToggleSubCard;

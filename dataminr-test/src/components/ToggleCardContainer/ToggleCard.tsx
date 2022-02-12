@@ -70,7 +70,7 @@ function ToggleCard({
 					</DropdownContainer>
 				)}
 
-				<ToggleContainer>
+				<ToggleContainer subCard={subCard}>
 					<SwitchToggle
 						name={name}
 						toggled={toggled}
@@ -123,7 +123,6 @@ const CardMain = styled.div<styleCardProps>`
 	align-items: center;
 	min-width: 370px;
 	${({ subCard }) => (subCard ? 'padding:5px;' : 'padding: 25px;')}
-	${({ subCard }) => subCard && 'padding-right: 60px;'}
 	${({ cardSize }) => cardSize === 'small' && 'padding:5px 25px 5px 25px;'}
 
 	@media screen and (max-width: 768px) {
@@ -132,9 +131,10 @@ const CardMain = styled.div<styleCardProps>`
 	}
 `;
 
-const ToggleContainer = styled.div`
+const ToggleContainer = styled.div<styleCardProps>`
 	display: flex;
-	justify-content: end;
+	${({ subCard }) =>
+		subCard ? 'justify-content: unset ;' : 'justify-content: end;'}
 	gap: 0.5em;
 `;
 
