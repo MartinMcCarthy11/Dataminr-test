@@ -55,11 +55,11 @@ function ToggleCard({
 	// }
 
 	return (
-		<CardsWrapper subCard={subCard}>
+		<CardsWrapper subCard={subCard} data-testid='toggle-card-test-id'>
 			<CardMain subCard={subCard} dropdown={dropdown} cardSize={cardSize}>
 				<h3>{title}</h3>
 				{dropdown && (
-					<DropdownContainer>
+					<DropdownContainer data-testid='toggle-card-dropdown-test-id'>
 						<select>
 							{dropdown.options.map((item) => (
 								<option key={item} value={item}>
@@ -88,7 +88,10 @@ function ToggleCard({
 				</ToggleContainer>
 			</CardMain>
 			{additionalSettings!.length > 0 && showHiddenSection && toggled && (
-				<ToggleSubCard additionalSettings={additionalSettings!} />
+				<ToggleSubCard
+					additionalSettings={additionalSettings!}
+					data-testid='toggle-card-additional-settings-test-id'
+				/>
 			)}
 		</CardsWrapper>
 	);

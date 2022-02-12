@@ -8,13 +8,14 @@ interface toggleProps {
 
 function SwitchToggle({ toggled, name, onChange }: toggleProps) {
 	return (
-		<ToggleContainer>
+		<ToggleContainer data-testid='switch-toggle-test-id'>
 			<Toggle
 				type='checkbox'
 				name={name}
 				id={name}
 				defaultChecked={toggled}
 				onChange={onChange}
+				data-testid='input-test-id'
 			/>
 			<ToggleLabel htmlFor={name} />
 		</ToggleContainer>
@@ -40,7 +41,6 @@ const ToggleLabel = styled.label`
 		width: 14px;
 		height: 14px;
 		margin: 1px 1px;
-		/* margin-left: 5px; */
 		background: #ffffff;
 		box-shadow: 1px 3px 3px 1px rgba(0, 0, 0, 0.2);
 		transition: 0.2s;
