@@ -81,6 +81,10 @@ const CombinedSectionWrapper = styled.section`
 		border-bottom-left-radius: 10px;
 		border-bottom-right-radius: 10px;
 	}
+
+	div:not(:first-child):not(:last-child) {
+		border-radius: 0px;
+	}
 `;
 
 export default ToggleCardContainer;
