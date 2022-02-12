@@ -100,11 +100,15 @@ function ToggleCard({
 const CardsWrapper = styled.div<styleCardProps>`
 	display: flex;
 	flex-direction: column;
-	flex: ${({ subCard }) => (subCard ? '0 1 50px;' : '0 1 420px;')};
+	flex: ${({ subCard }) => (subCard ? '0 1 50px;' : '1 1 420px;')};
 	padding-left: 30px;
 	background-color: #1b1c20;
 	border-radius: 10px;
 	font-size: 14px;
+
+	@media screen and (max-width: 768px) {
+		padding-left: 0;
+	}
 `;
 
 const CardMain = styled.div<styleCardProps>`
@@ -115,11 +119,17 @@ const CardMain = styled.div<styleCardProps>`
 	grid-template-rows: 0.5fr;
 	gap: 0px 0px;
 	grid-template-areas: ${({ dropdown }) =>
-		dropdown !== undefined ? '. . .' : '. . '};
+		dropdown !== undefined ? '. . .' : '. .'};
 	align-items: center;
 	min-width: 370px;
 	${({ subCard }) => (subCard ? 'padding:5px;' : 'padding: 25px;')}
+	${({ subCard }) => subCard && 'padding-right: 60px;'}
 	${({ cardSize }) => cardSize === 'small' && 'padding:5px 25px 5px 25px;'}
+
+	@media screen and (max-width: 768px) {
+		min-width: 80vw;
+		${({ subCard }) => subCard && 'padding-left: 40px;'}
+	}
 `;
 
 const ToggleContainer = styled.div`
