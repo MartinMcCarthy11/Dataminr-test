@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { AdditionalSettings, DropdownObject } from '../../schema';
-import ArrowToggle from './ArrowToggle';
-import SubCard from './SubCard';
-import ToggleSwitch from '../Common/ToggleSwitch';
+import ArrowToggle from '../Common/ArrowToggle';
+import ToggleSubCard from './ToggleSubCard';
+import SwitchToggle from '../Common/SwitchToggle';
 
-export type CardSize = 'small' | 'standared';
+export type CardSize = 'small' | 'standard';
 
 interface cardProps
 	extends styleCardProps,
@@ -23,7 +23,7 @@ interface styleCardProps {
 	cardSize?: CardSize;
 }
 
-function Card({
+function ToggleCard({
 	title,
 	name,
 	dropdown,
@@ -71,7 +71,7 @@ function Card({
 				)}
 
 				<ToggleContainer>
-					<ToggleSwitch
+					<SwitchToggle
 						name={name}
 						toggled={toggled}
 						onChange={() => updateToggleState(toggled)}
@@ -88,7 +88,7 @@ function Card({
 				</ToggleContainer>
 			</CardMain>
 			{additionalSettings!.length > 0 && showHiddenSection && toggled && (
-				<SubCard additionalSettings={additionalSettings!} />
+				<ToggleSubCard additionalSettings={additionalSettings!} />
 			)}
 		</CardsWrapper>
 	);
@@ -116,8 +116,7 @@ const CardMain = styled.div<styleCardProps>`
 	align-items: center;
 	min-width: 370px;
 	${({ subCard }) => (subCard ? 'padding:5px;' : 'padding: 25px;')}
-	${({ cardSize }) =>
-		cardSize === 'small' ? 'padding:5px;' : 'padding: 25px;'}
+	${({ cardSize }) => cardSize === 'small' && 'padding:5px 25px 5px 25px;'}
 `;
 
 const ToggleContainer = styled.div`
@@ -136,4 +135,4 @@ const DropdownContainer = styled.div`
 	}
 `;
 
-export default Card;
+export default ToggleCard;

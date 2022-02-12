@@ -1,6 +1,6 @@
 import { Section, Card as SchemaCard } from '../../schema';
 import styled from 'styled-components';
-import Card from './Card';
+import ToggleCard from './ToggleCard';
 
 interface Props {
 	schema: Section[];
@@ -15,7 +15,7 @@ function ToggleCardContainer({ schema }: Props) {
 					{section.combined ? (
 						<CombinedSectionWrapper>
 							{section.card.map((card: SchemaCard) => (
-								<Card
+								<ToggleCard
 									key={card.id}
 									title={card.title}
 									name={card.name}
@@ -26,14 +26,14 @@ function ToggleCardContainer({ schema }: Props) {
 										card.additionalSettings
 									}
 									subCard={card.subCard}
-									cardSize='small'
+									cardSize={card.cardSize}
 								/>
 							))}
 						</CombinedSectionWrapper>
 					) : (
 						<CardContainerWrapper>
 							{section.card.map((card: SchemaCard) => (
-								<Card
+								<ToggleCard
 									key={card.id}
 									title={card.title}
 									name={card.name}

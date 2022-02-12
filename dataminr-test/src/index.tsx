@@ -12,19 +12,6 @@ ReactDOM.render(
 );
 
 /**
- * toggle component
- *  Toggle groups vs single toggle
- *
- * dropdown component
- *  could create 2 types for the large dropdown and the small dropdown
- * non-dropdown toggle container
- * Parent < child relationship === users > users add
- * title
- *
- * ***** dynamic schema for text
- * create interface detailing the structure
- * the export json object extending that interface
- *
  * Check accessibility - run axe test etc
  *
  *

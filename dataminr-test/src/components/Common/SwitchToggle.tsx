@@ -6,7 +6,7 @@ interface toggleProps {
 	onChange: React.ChangeEventHandler<HTMLInputElement>;
 }
 
-function ToggleSwitch({ toggled, name, onChange }: toggleProps) {
+function SwitchToggle({ toggled, name, onChange }: toggleProps) {
 	return (
 		<ToggleContainer>
 			<Toggle
@@ -66,4 +66,4 @@ const Toggle = styled.input`
 	}
 `;
 
-export default ToggleSwitch;
+export default SwitchToggle;

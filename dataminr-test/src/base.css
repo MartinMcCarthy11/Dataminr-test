@@ -2,4 +2,8 @@ body {
 	margin: 0;
 	font-family: 'roboto', sans-serif;
 	text-transform: uppercase;
+	background-color: #0d0d0f;
+	color: #fff;
+	margin: 0;
+	padding: 50px;
 }

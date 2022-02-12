@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
+import { CardSize } from './components/ToggleCardContainer/ToggleCard';
 
 export interface DropdownObject {
-	initialSelection: string;
 	options: string[];
 }
 
@@ -22,6 +22,7 @@ export interface Card {
 	selected: boolean;
 	dropdown?: DropdownObject;
 	subCard: boolean;
+	cardSize?: CardSize;
 	additionalSettings: AdditionalSettings[];
 }
 
@@ -93,15 +94,25 @@ export const schema: Section[] = [
 		id: uuidv4(),
 		title: 'Settings',
 		name: 'settings',
+		combined: true,
 		card: [
+			{
+				id: uuidv4(),
+				title: 'Audit Log',
+				name: 'auditLog',
+				selected: true,
+				additionalSettings: [],
+				subCard: false,
+				cardSize: 'standard',
+			},
 			{
 				id: uuidv4(),
 				title: 'Users',
 				name: 'users',
 				selected: false,
 				subCard: false,
+				cardSize: 'standard',
 				dropdown: {
-					initialSelection: '20',
 					options: ['10', '20', '30', '40', '50'],
 				},
 				additionalSettings: [
@@ -138,6 +149,7 @@ export const schema: Section[] = [
 				selected: true,
 				additionalSettings: [],
 				subCard: false,
+				cardSize: 'small',
 			},
 			{
 				id: uuidv4(),
@@ -145,8 +157,8 @@ export const schema: Section[] = [
 				name: 'alertRules',
 				selected: false,
 				subCard: false,
+				cardSize: 'small',
 				dropdown: {
-					initialSelection: '20',
 					options: ['10', '20', '30', '40', '50'],
 				},
 				additionalSettings: [],

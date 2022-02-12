@@ -1,17 +1,17 @@
 import styled from 'styled-components';
 import { AdditionalSettings } from '../../schema';
-import Card from './Card';
+import ToggleCard from './ToggleCard';
 
 interface SubCardProps {
 	additionalSettings: AdditionalSettings[];
 	dropdown?: boolean;
 }
 
-function SubCard({ additionalSettings }: SubCardProps) {
+function ToggleSubCard({ additionalSettings }: SubCardProps) {
 	return (
 		<SubCardWrapper>
 			{additionalSettings.map((card) => (
-				<Card
+				<ToggleCard
 					key={card.id}
 					title={card.title}
 					name={card.name}
@@ -32,4 +32,4 @@ const SubCardWrapper = styled.div`
 	border-radius: 5px;
 `;
 
-export default SubCard;
+export default ToggleSubCard;
