@@ -11,3 +11,4 @@
 
 5- `yarn run cypress` to run e2e test
 
+Thanks for taking the time to look through this project :+1:
