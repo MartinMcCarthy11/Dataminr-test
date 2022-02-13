@@ -31,7 +31,7 @@ function ToggleCard({
 }: CardProps) {
 	const [toggled, setToogled] = useState(selected);
 	const [showHiddenSection, setShowHiddenSection] = useState(false);
-	const [arrowOrietation, setArrowOrientation] = useState('down');
+	const [arrowOrientation, setArrowOrientation] = useState('down');
 
 	const updateToggleState = (toggled: boolean) => {
 		setToogled(!toggled);
@@ -47,10 +47,6 @@ function ToggleCard({
 			setArrowOrientation('up');
 		}
 	};
-
-	// const updateSchema = () => {
-
-	// }
 
 	return (
 		<CardsWrapper subCard={subCard} data-testid='toggle-card-test-id'>
@@ -77,7 +73,7 @@ function ToggleCard({
 
 					{additionalSettings!.length > 0 && (
 						<ArrowToggle
-							arrowOrientation={arrowOrietation}
+							arrowOrientation={arrowOrientation}
 							onClick={() => {
 								toggleOptionsVisibility();
 							}}
@@ -115,6 +111,8 @@ const CardMain = styled.div<StyleProps>`
 	grid-auto-columns: 1fr;
 	grid-template-columns: ${({ dropdown }) =>
 		dropdown != null ? '3.5fr 2fr 1.5fr' : '3.5fr 1.5fr'};
+	grid-template-columns: ${({ dropdown, subCard }) =>
+		dropdown != null && subCard && '2fr 1.5fr 1.5fr'};
 	grid-template-rows: 0.5fr;
 	gap: 0px 0px;
 	grid-template-areas: ${({ dropdown }) =>

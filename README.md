@@ -3,7 +3,7 @@
 ## Setup
 1- Clone the repo git clone https://github.com/MartinMcCarthy11/Dataminr-test
 
-2- `yarn i` to install npm packages
+2- `yarn install` to install npm packages
 
 3- Run app by using `yarn start`, then open http://localhost:3000 to view it in the browser.
 

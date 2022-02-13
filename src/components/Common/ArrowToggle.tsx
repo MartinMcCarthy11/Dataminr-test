@@ -1,4 +1,4 @@
-import React, { HtmlHTMLAttributes } from 'react';
+import React from 'react';
 import { BsChevronDown, BsChevronUp } from 'react-icons/bs';
 import styled from 'styled-components';
 
