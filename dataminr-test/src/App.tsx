@@ -1,5 +1,5 @@
 import { Section } from './schema';
-import ToggleCardContainer from './components/ToggleCardContainer/ToggleCardContainer';
+import Dashboard from './components/Dashboard/Dashboard';
 import styled from 'styled-components';
 
 interface AppProps {
@@ -9,7 +9,7 @@ interface AppProps {
 function App({ schema }: AppProps) {
 	return (
 		<AppWrapper>
-			<ToggleCardContainer schema={schema} />
+			<Dashboard schema={schema} />
 		</AppWrapper>
 	);
 }

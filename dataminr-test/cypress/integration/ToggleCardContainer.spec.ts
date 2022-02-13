@@ -14,7 +14,7 @@ describe('My First Test', () => {
 		cy.get('[id="users"]').should('not.be.checked');
 	});
 
-	it('Selects users toggle, checks its toggled', () => {
+	it('Selects users toggle, checks if its checked', () => {
 		cy.get('[for="users"]')
 			.click()
 			.get('[id="users"]')
@@ -29,14 +29,14 @@ describe('My First Test', () => {
 		cy.get('[for="usersAdd"]').should('be.visible');
 	});
 
-	it('Selects users add toggle, checks its not toggled', () => {
+	it('Selects users add toggle, checks its not checked', () => {
 		cy.get('[for="usersAdd"]')
 			.click()
 			.get('[id="usersAdd"]')
 			.should('not.be.checked');
 	});
 
-	it('Selects users toggle, checks if its not toggled', () => {
+	it('Selects users toggle, checks if its not checked', () => {
 		cy.get('[for="users"]')
 			.click()
 			.get('[id="users"]')

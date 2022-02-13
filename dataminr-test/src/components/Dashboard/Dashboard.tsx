@@ -1,6 +1,6 @@
 import { Section, Card as SchemaCard } from '../../schema';
 import styled from 'styled-components';
-import ToggleCard from './ToggleCard';
+import ToggleCard from './ToggleCard/ToggleCard';
 
 interface Props extends StyleProps {
 	schema: Section[];
@@ -10,9 +10,9 @@ interface StyleProps {
 	sectionName?: string;
 }
 
-function ToggleCardContainer({ schema }: Props) {
+function Dashboard({ schema }: Props) {
 	return (
-		<MainContainerWrapper>
+		<DashboardWrapper>
 			{schema.map((section) => (
 				<SectionWrapper key={section.id} sectionName={section.name}>
 					<Heading data-testid='header-wrapper'>
@@ -56,7 +56,7 @@ function ToggleCardContainer({ schema }: Props) {
 					)}
 				</SectionWrapper>
 			))}
-		</MainContainerWrapper>
+		</DashboardWrapper>
 	);
 }
 
@@ -67,7 +67,7 @@ const CardContainerWrapper = styled.div`
 	gap: 2em;
 `;
 
-const MainContainerWrapper = styled.section`
+const DashboardWrapper = styled.section`
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	grid-template-rows: auto;
@@ -115,4 +115,4 @@ const Heading = styled.h2`
 	}
 `;
 
-export default ToggleCardContainer;
+export default Dashboard;

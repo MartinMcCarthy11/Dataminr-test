@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import { CardSize } from './components/ToggleCardContainer/ToggleCard';
+import { CardSize } from './components/Dashboard/ToggleCard/ToggleCard';
 
 export interface DropdownObject {
 	options: string[];

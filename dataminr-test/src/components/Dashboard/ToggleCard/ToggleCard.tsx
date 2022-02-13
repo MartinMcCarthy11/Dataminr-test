@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import { AdditionalSettings, DropdownObject } from '../../schema';
-import ArrowToggle from '../Common/ArrowToggle';
+import { AdditionalSettings, DropdownObject } from '../../../schema';
+import ArrowToggle from '../../Common/ArrowToggle';
 import ToggleSubCard from './ToggleSubCard';
-import SwitchToggle from '../Common/SwitchToggle';
+import SwitchToggle from '../../Common/SwitchToggle';
 
 export type CardSize = 'small' | 'standard';
 

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { AdditionalSettings } from '../../schema';
+import { AdditionalSettings } from '../../../schema';
 import ToggleCard from './ToggleCard';
 
 interface SubCardProps {
