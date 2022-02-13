@@ -11,4 +11,6 @@
 
 5- `yarn run cypress` or `npm run cypress` to run e2e test
 
+6- View the app live at https://dataminr-test.vercel.app/
+
 Thanks for taking the time to look through this project :+1:
