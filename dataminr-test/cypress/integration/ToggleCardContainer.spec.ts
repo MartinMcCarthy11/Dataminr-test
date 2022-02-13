@@ -1,4 +1,4 @@
-describe('My First Test', () => {
+describe('Test toggle and Show/Hide Feature', () => {
 	it('Go to page', () => {
 		cy.visit('http://localhost:3000/');
 	});
