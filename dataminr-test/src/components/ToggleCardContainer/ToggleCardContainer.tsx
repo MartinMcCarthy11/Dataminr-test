@@ -15,7 +15,9 @@ function ToggleCardContainer({ schema }: Props) {
 		<MainContainerWrapper>
 			{schema.map((section) => (
 				<SectionWrapper key={section.id} sectionName={section.name}>
-					<Heading>{section.title}</Heading>
+					<Heading data-testid='header-wrapper'>
+						{section.title}
+					</Heading>
 					{section.combined ? (
 						<CombinedCardContainerWrapper>
 							{section.card.map((card: SchemaCard) => (

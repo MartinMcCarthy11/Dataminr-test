@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { HtmlHTMLAttributes } from 'react';
 import { BsChevronDown, BsChevronUp } from 'react-icons/bs';
 import styled from 'styled-components';
 
 interface ArrowToggleProps extends StyleProps {
-	onClick: React.MouseEventHandler<SVGElement>;
+	onClick: React.MouseEventHandler<HTMLDivElement>;
 	arrowOrientation: string;
 }
 
@@ -17,11 +17,15 @@ function ArrowToggle({
 	arrowOrientation,
 }: ArrowToggleProps) {
 	return (
-		<IconContainer isDisabled={isDisabled}>
+		<IconContainer
+			isDisabled={isDisabled}
+			onClick={onClick}
+			id='ArrowToggleId'
+		>
 			{arrowOrientation === 'up' && isDisabled ? (
-				<BsChevronUp onClick={onClick} />
+				<BsChevronUp />
 			) : (
-				<BsChevronDown onClick={onClick} />
+				<BsChevronDown />
 			)}
 		</IconContainer>
 	);

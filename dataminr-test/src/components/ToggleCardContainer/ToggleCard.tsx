@@ -7,10 +7,7 @@ import SwitchToggle from '../Common/SwitchToggle';
 
 export type CardSize = 'small' | 'standard';
 
-interface CardProps
-	extends StyleProps,
-		JSX.IntrinsicAttributes,
-		React.HtmlHTMLAttributes<HTMLElement> {
+interface CardProps extends StyleProps {
 	title: string;
 	name: string;
 	selected: boolean;
@@ -34,13 +31,11 @@ function ToggleCard({
 }: CardProps) {
 	const [toggled, setToogled] = useState(selected);
 	const [showHiddenSection, setShowHiddenSection] = useState(false);
-	const [disabled, setDisabled] = useState(false);
 	const [arrowOrietation, setArrowOrientation] = useState('down');
 
 	const updateToggleState = (toggled: boolean) => {
 		setToogled(!toggled);
 		setShowHiddenSection(!toggled && false);
-		setDisabled(toggled);
 	};
 
 	const toggleOptionsVisibility = () => {
@@ -119,7 +114,7 @@ const CardMain = styled.div<StyleProps>`
 	display: grid;
 	grid-auto-columns: 1fr;
 	grid-template-columns: ${({ dropdown }) =>
-		dropdown !== undefined ? '3.5fr 2fr 1.5fr' : '3.5fr 1.5fr'};
+		dropdown != null ? '3.5fr 2fr 1.5fr' : '3.5fr 1.5fr'};
 	grid-template-rows: 0.5fr;
 	gap: 0px 0px;
 	grid-template-areas: ${({ dropdown }) =>
