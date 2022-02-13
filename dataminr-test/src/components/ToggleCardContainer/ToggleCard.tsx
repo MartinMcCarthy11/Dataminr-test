@@ -7,8 +7,8 @@ import SwitchToggle from '../Common/SwitchToggle';
 
 export type CardSize = 'small' | 'standard';
 
-interface cardProps
-	extends styleCardProps,
+interface CardProps
+	extends StyleProps,
 		JSX.IntrinsicAttributes,
 		React.HtmlHTMLAttributes<HTMLElement> {
 	title: string;
@@ -17,7 +17,7 @@ interface cardProps
 	additionalSettings: AdditionalSettings[];
 }
 
-interface styleCardProps {
+interface StyleProps {
 	subCard: boolean;
 	dropdown?: DropdownObject;
 	cardSize?: CardSize;
@@ -31,7 +31,7 @@ function ToggleCard({
 	selected,
 	cardSize,
 	additionalSettings,
-}: cardProps) {
+}: CardProps) {
 	const [toggled, setToogled] = useState(selected);
 	const [showHiddenSection, setShowHiddenSection] = useState(false);
 	const [disabled, setDisabled] = useState(false);
@@ -101,7 +101,7 @@ function ToggleCard({
 	);
 }
 
-const CardsWrapper = styled.div<styleCardProps>`
+const CardsWrapper = styled.div<StyleProps>`
 	display: flex;
 	flex-direction: column;
 	flex: ${({ subCard }) => (subCard ? '0 1 50px;' : '1 1 420px;')};
@@ -115,7 +115,7 @@ const CardsWrapper = styled.div<styleCardProps>`
 	}
 `;
 
-const CardMain = styled.div<styleCardProps>`
+const CardMain = styled.div<StyleProps>`
 	display: grid;
 	grid-auto-columns: 1fr;
 	grid-template-columns: ${({ dropdown }) =>
@@ -135,7 +135,7 @@ const CardMain = styled.div<styleCardProps>`
 	}
 `;
 
-const ToggleContainer = styled.div<styleCardProps>`
+const ToggleContainer = styled.div<StyleProps>`
 	display: flex;
 	${({ subCard }) =>
 		subCard ? 'justify-content: unset ;' : 'justify-content: end;'}

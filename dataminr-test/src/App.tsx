@@ -2,11 +2,11 @@ import { Section } from './schema';
 import ToggleCardContainer from './components/ToggleCardContainer/ToggleCardContainer';
 import styled from 'styled-components';
 
-type Props = {
+interface AppProps {
 	schema: Section[];
-};
+}
 
-function App({ schema }: Props) {
+function App({ schema }: AppProps) {
 	return (
 		<AppWrapper>
 			<ToggleCardContainer schema={schema} />

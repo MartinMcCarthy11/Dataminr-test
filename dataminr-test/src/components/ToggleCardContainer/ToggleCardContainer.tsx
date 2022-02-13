@@ -2,11 +2,11 @@ import { Section, Card as SchemaCard } from '../../schema';
 import styled from 'styled-components';
 import ToggleCard from './ToggleCard';
 
-interface Props extends styleProps {
+interface Props extends StyleProps {
 	schema: Section[];
 }
 
-interface styleProps {
+interface StyleProps {
 	sectionName?: string;
 }
 
@@ -84,7 +84,7 @@ const MainContainerWrapper = styled.section`
 	}
 `;
 
-const SectionWrapper = styled.div<styleProps>`
+const SectionWrapper = styled.div<StyleProps>`
 	grid-area: ${({ sectionName }) => sectionName};
 `;
 
