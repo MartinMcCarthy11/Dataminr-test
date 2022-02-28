@@ -15,7 +15,7 @@ function App({ schema }: AppProps) {
 }
 
 const AppWrapper = styled.main`
-	width: 80%;
+	width: 90%;
 	margin: 0 auto;
 	padding: 25px;
 	@media screen and (max-width: 768px) {

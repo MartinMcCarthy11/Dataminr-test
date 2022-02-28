@@ -10,12 +10,3 @@ ReactDOM.render(
 	</React.StrictMode>,
 	document.getElementById('root')
 );
-
-/**
- * Check accessibility - run axe test etc
- *
- *
- *
- *Bugs:
-  arrow changes dierection when toggle set to false
- */

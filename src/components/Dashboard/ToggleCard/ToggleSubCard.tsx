@@ -18,7 +18,7 @@ function ToggleSubCard({ additionalSettings }: SubCardProps) {
 					selected={card.selected}
 					dropdown={card.dropdown}
 					additionalSettings={[]}
-					subCard={card.selected}
+					subCard={card.subCard}
 				/>
 			))}
 		</SubCardWrapper>

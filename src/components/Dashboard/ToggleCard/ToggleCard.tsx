@@ -115,8 +115,6 @@ const CardMain = styled.div<StyleProps>`
 		dropdown != null && subCard && '2fr 1.5fr 1.5fr'};
 	grid-template-rows: 0.5fr;
 	gap: 0px 0px;
-	grid-template-areas: ${({ dropdown }) =>
-		dropdown !== undefined ? '. . .' : '. .'};
 	align-items: center;
 	min-width: 370px;
 	${({ subCard }) => (subCard ? 'padding:5px;' : 'padding: 25px;')}
